@@ -1,15 +1,15 @@
 #include "Kor.h"
 
-double Kor::x_kiszamito(Pont A, double sugar) {
-	return -2 * A.getX();
+double Kor::x_kiszamito(double x, double y, double sugar) {
+	return -2 * x;
 }
 
-double Kor::y_kiszamito(Pont A, double sugar) {
-	return -2 * A.getY();
+double Kor::y_kiszamito(double x, double y, double sugar) {
+	return -2 * y;
 }
 
-double Kor::konstans_kiszamito(Pont A, double sugar) {
-	double eredmeny = A.getX() * A.getX() + A.getY() * A.getY() - sugar * sugar;
+double Kor::konstans_kiszamito(double x, double y, double sugar) {
+	double eredmeny = x * x + y * y - sugar * sugar;
 	return eredmeny;
 }
 
