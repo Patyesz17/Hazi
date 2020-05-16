@@ -1,3 +1,6 @@
+#ifndef PARABOLA_H
+#define PARABOLA_H
+
 #include "Alakzat.h"
 
 class Parabola:public Alakzat {
@@ -8,5 +11,8 @@ public:
 	double getX()const;
 	double getY()const;
 	double getKonst() const;
-	void print();
+	virtual void print() const {
+   		std::cout << "PARABOLA" << std::endl;
+	}
 };
+#endif

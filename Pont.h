@@ -1,3 +1,6 @@
+#ifndef PONT_H
+#define PONT_H
+
 class Pont{
 	double x;
 	double y;
@@ -10,3 +13,4 @@ public:
 	double getY()const;
 	void kiirat();
 };
+#endif

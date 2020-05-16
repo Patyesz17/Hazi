@@ -1,3 +1,6 @@
+#ifndef KOR_H
+#define KOR_H
+
 #include "Pont.h"
 #include "Alakzat.h"
 
@@ -11,5 +14,8 @@ public:
 	double getX()const;
 	double getY()const;
 	double getKonst() const;
-	void print();
+	virtual void print() const {
+   		std::cout << "KOR" << std::endl;
+	}
 };
+#endif
