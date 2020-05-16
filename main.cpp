@@ -5,6 +5,7 @@
 #include "Parabola.h"
 #include "Pont.h"
 #include "FilebolBeolvas.h"
+#include "Metszo.h"
 
 int main() {
 	Pont A(3, 5);
