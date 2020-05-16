@@ -13,5 +13,6 @@ public:
 	void kiirat() {
 		std::cout << x << " " << y << std::endl;
 	}
+	~Pont() {}
 };
 #endif

@@ -14,5 +14,6 @@ double Kor::konstans_kiszamito(double x, double y, double sugar) {
 }
 
 void Kor::print()const {
+	std::cout << "Itt jon egy Kor: ";
 	std::cout << getXnegyzet() << " * x^2 + " << getX() << " * x + " << getYnegyzet() << " * y^2 + " << getY() << " * y + " << getKonst()<< " = 0" << std::endl;
 }

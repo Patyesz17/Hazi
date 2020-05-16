@@ -17,5 +17,6 @@ double Egyenes::konstans_kiszamito(double x1, double y1, double x2, double y2) {
 }
 
 void Egyenes::print()const {
+	std::cout << "Itt jon egy Egyenes: ";
 	std::cout << "y" << "=" << getX() << "* x + " << getKonst() << std::endl;
 }

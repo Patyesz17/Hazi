@@ -27,8 +27,7 @@ vector<Egyenes*> egyenes_beolvaso (string file_nev) {
         int index = 0;
 
         while (file >> x1 >> y1 >> x2 >> y2) {
-           // cout << "BEOLVASOK" << endl;
-            ret.push_back(new  Egyenes(x1, y1, x2, y2));
+            ret.push_back(new  Egyenes(x1, y1, x2, y2, egyenes));
         }
     }
 
@@ -52,8 +51,7 @@ vector<Kor*> kor_beolvaso (string file_nev) {
         int index = 0;
 
         while (file >> x1 >> y1 >> sugar) {
-            cout << "BEOLVASOK" << endl;
-            ret.push_back(new  Kor(x1, y1, sugar));
+            ret.push_back(new  Kor(x1, y1, sugar, kor));
         }
     }
 
@@ -77,8 +75,7 @@ vector<Parabola*> parabola_beolvaso (string file_nev) {
         int index = 0;
 
         while (file >> x1 >> y1 >> sugar) {
-            cout << "BEOLVASOK" << endl;
-            ret.push_back(new Parabola(x1, y1, sugar));
+            ret.push_back(new Parabola(x1, y1, sugar, parabola));
         }
     }
 

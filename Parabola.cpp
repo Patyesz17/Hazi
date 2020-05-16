@@ -1,5 +1,5 @@
-#include "Parabola.h"
+// #include "Parabola.h"
 
-void Parabola::print()const {
-	std::cout << "y = " << getXnegyzet() << " * x^2 + " << getX() << " * x + " << getKonst() << std::endl;
-}
+// void Parabola::print()const {
+// 	std::cout << "y = " << getXnegyzet() << " * x^2 + " << getX() << " * x + " << getKonst() << std::endl;
+// }

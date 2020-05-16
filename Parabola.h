@@ -6,11 +6,14 @@
 
 class Parabola:public Alakzat {
 	double xNegyzet;
+	
 public:
-	Parabola(double xNegyzet, double x, double konstans) :Alakzat(x, 1.0, konstans), xNegyzet(xNegyzet){}
+	Parabola(double xNegyzet, double x, double konstans, AlakzatNev nev) :Alakzat(x, 1.0, konstans, nev), xNegyzet(xNegyzet){}
 	double getXnegyzet()const { return xNegyzet; }
 	virtual void print() const {
-   		std::cout << "PARABOLA" << std::endl;
+		std::cout << "Itt jon egy Parabola: ";
+		std::cout << "y = " << getXnegyzet() << " * x^2 + " << getX() << " * x + " << getKonst() << std::endl;
 	}
+	~Parabola() {}
 };
 #endif
