@@ -7,12 +7,10 @@
 class Egyenes:public Alakzat {
 
 public:
-	Egyenes(Pont A, Pont B):Alakzat(x_kiszamito(A, B), 1.0, konstans_kiszamito(A, B)) {}
-	double x_kiszamito(Pont A, Pont B);
-	double konstans_kiszamito(Pont A, Pont B);
-	virtual void print() const {
-   		std::cout << "EGYENES" << std::endl;
-	}
+	Egyenes(double x1, double y1, double x2, double y2):Alakzat(x_kiszamito(x1, y1,  x2, y2), 1.0, konstans_kiszamito(x1, y1, x2, y2)) {}
+	double x_kiszamito(double x1, double y1, double x2, double y2);
+	double konstans_kiszamito(double x1, double y1, double x2, double y2);
+	virtual void print() const;
 	
 };
 #endif

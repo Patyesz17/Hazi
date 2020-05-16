@@ -1,18 +1,18 @@
 #include "Egyenes.h"
 
-double Egyenes::x_kiszamito(Pont A, Pont B) {
-	double vektorX = B.getX() - A.getX();
-	double vektorY = B.getY() - A.getY();
+double Egyenes::x_kiszamito(double x1, double y1, double x2, double y2) {
+	double vektorX = x2 - x1;
+	double vektorY = y2 - y1;
 	double eredmeny = (-1 * vektorY) / (-1 * vektorX);
 
 	return eredmeny;
 
 }
 
-double Egyenes::konstans_kiszamito(Pont A, Pont B) {
-	double vektorX = B.getX() - A.getX();
-	double vektorY = B.getY() - A.getY();
-	double eredmeny = (vektorY * A.getX() - vektorX * A.getY()) / (-1 * vektorX);
+double Egyenes::konstans_kiszamito(double x1, double y1, double x2, double y2) {
+	double vektorX = x2 - x1;
+	double vektorY = y2 - y1;
+	double eredmeny = (vektorY * x1 - vektorX * y1) / (-1 * vektorX);
 	return eredmeny;
 }
 
