@@ -4,6 +4,7 @@
 #include "Kor.h"
 #include "Parabola.h"
 #include "Pont.h"
+#include "FilebolBeolvas.h"
 
 
 int main() {
@@ -24,5 +25,10 @@ int main() {
 	teszteles.print();
 	std::cout << teszteles.getXnegyzet()<<" "<< teszteles.getYnegyzet() << " " << teszteles.getX() << " " << teszteles.getKonst() << " " << teszteles.getY() << std::endl;
 
-
+	vector<Egyenes*> Egyenesek_teszt = egyenes_beolvaso("egyenes.txt");
+	cout << Egyenesek_teszt.size();
+	for (int i = 0; i < Egyenesek_teszt.size(); i++) {
+		cout << "FOR CIKLUS " << i << endl;
+		cout << Egyenesek_teszt[i]->getX() << endl;
+	}
 }
