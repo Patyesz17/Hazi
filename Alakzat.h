@@ -1,5 +1,6 @@
 #ifndef ALAKZAT_H
 #define ALAKZAT_H
+#include <iostream>
 
 class Alakzat {
 	double x;
@@ -23,6 +24,9 @@ public:
 		}
 		return *this;
 	}
+	double getX()const { return x; }
+	double getY()const { return y; }
+	double getKonst() const { return konstans; };
 
 	virtual void print() const {
    		std::cout << "ALAKZAT" << std::endl;
