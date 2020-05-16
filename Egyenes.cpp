@@ -15,3 +15,7 @@ double Egyenes::konstans_kiszamito(Pont A, Pont B) {
 	double eredmeny = (vektorY * A.getX() - vektorX * A.getY()) / (-1 * vektorX);
 	return eredmeny;
 }
+
+void Egyenes::print()const {
+	std::cout << "y" << "=" << getX() << "* x + " << getKonst() << std::endl;
+}

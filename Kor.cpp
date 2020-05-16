@@ -12,3 +12,7 @@ double Kor::konstans_kiszamito(Pont A, double sugar) {
 	double eredmeny = A.getX() * A.getX() + A.getY() * A.getY() - sugar * sugar;
 	return eredmeny;
 }
+
+void Kor::print()const {
+	std::cout << getXnegyzet() << " * x^2 + " << getX() << " * x + " << getYnegyzet() << " * y^2 + " << getY() << " * y + " << getKonst()<< " = 0" << std::endl;
+}
