@@ -8,35 +8,78 @@
 #include "Metszo.h"
 
 int main() {
-	Pont A(3, 5);
-	Pont B(5, 2);
-	Pont C(0, 0);
-	double sugar = 5;
+	
 
-	Egyenes proba(3, 5, 5, 2, egyenes);
-	proba.print();
-	std::cout << proba.getX() << " " << proba.getY() << " " << proba.getKonst() << std::endl;
+		vector<Egyenes*> egyenesek = egyenes_beolvaso("egyenes.txt");
 
-	Parabola teszt(1, -6, 9, parabola);
-	teszt.print();
-	std::cout << teszt.getXnegyzet() << " " << teszt.getX() << " " << teszt.getKonst() << " " << teszt.getY() << std::endl;
+		vector<Kor*> korok = kor_beolvaso("kor.txt");
 
-	Kor teszteles(0, 0, sugar, kor);
-	teszteles.print();
-	std::cout << teszteles.getXnegyzet()<<" "<< teszteles.getYnegyzet() << " " << teszteles.getX() << " " << teszteles.getKonst() << " " << teszteles.getY() << std::endl;
+		vector<Parabola*> parabolak = parabola_beolvaso("parabola.txt");
 
-	vector<Egyenes*> egyenesek = egyenes_beolvaso("egyenes.txt");
-	for (int i = 0; i < egyenesek.size(); i++) {
-		egyenesek[i]->print();
+		Metszo metszi1(egyenesek[0], egyenesek[1]);
+		vector<Pont*>metszespont1 = metszi1.egyenes_egyenes_metszes();
+		if (metszespont1.size() == 0) {
+			std::cout << "Nem metszi egymást a két alakzat" << std::endl;
+		}
+		else {
+			for (int i = 0; i < metszespont1.size(); i++) {
+				metszespont1[i]->kiirat();
+			}
+		}
+
+		Metszo metszi2(egyenesek[0], korok[2]);
+		vector<Pont*>metszespont2 = metszi2.egyenes_kor_metszes();
+		if (metszespont2.size() == 0) {
+			std::cout << "Nem metszi egymást a két alakzat" << std::endl;
+		}
+		else {
+			for (int i = 0; i < metszespont2.size(); i++) {
+				metszespont2[i]->kiirat();
+			}
+		}
+
+
+		Metszo metszi3(egyenesek[2], parabolak[1]);
+		vector<Pont*>metszespont3 = metszi3.egyenes_parabola_metszes();
+		if (metszespont3.size() == 0) {
+			std::cout << "Nem metszi egymást a két alakzat" << std::endl;
+		}
+		else {
+			for (int i = 0; i < metszespont3.size(); i++) {
+				metszespont3[i]->kiirat();
+			}
+		}
+
+		/*Metszo metszi4(korok[0], korok[1]);
+		vector<Pont*>metszespont4 = metszi4.kor_kor_metszes();
+		if (metszespont4.size() < 1) {
+			std::cout << "Nem metszi egymást a két alakzat" << std::endl;
+		}
+		else if(metszespont4.size()>=1) {
+			for (int i = 0; i < metszespont4.size(); i++) {
+				metszespont4[i]->kiirat();
+				std::cout << "hibakereses" << std::endl;
+			}
+		}*/
+
+		/*Metszo metszi5(parabolak[0], parabolak[1]);
+		vector<Pont*>metszespont5 = metszi5.parabola_parabola_metszes();
+		if (metszespont5.size() < 1) {
+			std::cout << "Nem metszi egymást a két alakzat" << std::endl;
+		}
+		else {
+			for (int i = 0; i < metszespont5.size(); i++) {
+				metszespont5[i]->kiirat();
+				std::cout << "hibakereses" << std::endl;
+			}
+		}*/
+
+	
+	
+	
 	}
+	
 
-	vector<Kor*> korok = kor_beolvaso("kor.txt");
-	for (int i = 0; i < korok.size(); i++) {
-		korok[i]->print();
-	}
-
-	vector<Parabola*> parabolak = parabola_beolvaso("parabola.txt");
-	for (int i = 0; i < parabolak.size(); i++) {
-		parabolak[i]->print();
-	}
-}	
+	
+	
+	

@@ -27,13 +27,15 @@ vector<Egyenes*> egyenes_beolvaso (string file_nev) {
         int index = 0;
 
         while (file >> x1 >> y1 >> x2 >> y2) {
-            ret.push_back(new  Egyenes(x1, y1, x2, y2, egyenes));
+            ret.push_back(new  Egyenes(x1, y1, x2, y2));
         }
+
+		file.close();
+		return ret;
     }
-
-    file.close();
-    return ret;
-
+	else {
+		throw -1;
+	}
 }
 
 vector<Kor*> kor_beolvaso (string file_nev) {
@@ -51,9 +53,15 @@ vector<Kor*> kor_beolvaso (string file_nev) {
         int index = 0;
 
         while (file >> x1 >> y1 >> sugar) {
-            ret.push_back(new  Kor(x1, y1, sugar, kor));
+			if (sugar < 0 || sugar == 0) {
+				throw 'a';
+			}
+            ret.push_back(new  Kor(x1, y1, sugar));
         }
     }
+	else {
+		throw -1;
+	}
 
     file.close();
     return ret;
@@ -75,9 +83,12 @@ vector<Parabola*> parabola_beolvaso (string file_nev) {
         int index = 0;
 
         while (file >> x1 >> y1 >> sugar) {
-            ret.push_back(new Parabola(x1, y1, sugar, parabola));
+            ret.push_back(new Parabola(x1, y1, sugar));
         }
     }
+	else {
+		throw -1;
+	}
 
     file.close();
     return ret;
