@@ -19,7 +19,7 @@ int main() {
 		Metszo metszi1(egyenesek[0], egyenesek[1]);
 		vector<Pont*>metszespont1 = metszi1.egyenes_egyenes_metszes();
 		if (metszespont1.size() == 0) {
-			std::cout << "Nem metszi egymást a két alakzat" << std::endl;
+			std::cout << "Nem metszi egymï¿½st a kï¿½t alakzat" << std::endl;
 		}
 		else {
 			for (int i = 0; i < metszespont1.size(); i++) {
@@ -30,7 +30,7 @@ int main() {
 		Metszo metszi2(egyenesek[0], korok[2]);
 		vector<Pont*>metszespont2 = metszi2.egyenes_kor_metszes();
 		if (metszespont2.size() == 0) {
-			std::cout << "Nem metszi egymást a két alakzat" << std::endl;
+			std::cout << "Nem metszi egymï¿½st a kï¿½t alakzat" << std::endl;
 		}
 		else {
 			for (int i = 0; i < metszespont2.size(); i++) {
@@ -42,7 +42,7 @@ int main() {
 		Metszo metszi3(egyenesek[2], parabolak[1]);
 		vector<Pont*>metszespont3 = metszi3.egyenes_parabola_metszes();
 		if (metszespont3.size() == 0) {
-			std::cout << "Nem metszi egymást a két alakzat" << std::endl;
+			std::cout << "Nem metszi egymï¿½st a kï¿½t alakzat" << std::endl;
 		}
 		else {
 			for (int i = 0; i < metszespont3.size(); i++) {
@@ -50,10 +50,22 @@ int main() {
 			}
 		}
 
+
+		for (int i = 0; i < egyenesek.size(); i++) {
+			delete egyenesek[i];
+		}
+		
+		for (int i = 0; i < korok.size(); i++) {
+			delete korok[i];
+		}
+		
+		for (int i = 0; i < parabolak.size(); i++) {
+			delete parabolak[i];
+		}
 		/*Metszo metszi4(korok[0], korok[1]);
 		vector<Pont*>metszespont4 = metszi4.kor_kor_metszes();
 		if (metszespont4.size() < 1) {
-			std::cout << "Nem metszi egymást a két alakzat" << std::endl;
+			std::cout << "Nem metszi egymï¿½st a kï¿½t alakzat" << std::endl;
 		}
 		else if(metszespont4.size()>=1) {
 			for (int i = 0; i < metszespont4.size(); i++) {
@@ -65,7 +77,7 @@ int main() {
 		/*Metszo metszi5(parabolak[0], parabolak[1]);
 		vector<Pont*>metszespont5 = metszi5.parabola_parabola_metszes();
 		if (metszespont5.size() < 1) {
-			std::cout << "Nem metszi egymást a két alakzat" << std::endl;
+			std::cout << "Nem metszi egymï¿½st a kï¿½t alakzat" << std::endl;
 		}
 		else {
 			for (int i = 0; i < metszespont5.size(); i++) {

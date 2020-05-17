@@ -184,20 +184,7 @@ vector<Pont*> parabola_parabola_metszes() {
 
    
     
-    ~ Metszo() {
-		std::cout << "Most torlom az elso egyenest" << std::endl;
-		delete egyenes1;
-		std::cout << "Most torlom a masodik egyenest" << std::endl;
-		delete egyenes2;
-		std::cout << "Most torlom az elso kort" << std::endl;
-		delete kor1;
-		std::cout << "Most torlom a masodik kort" << std::endl;
-		delete kor2;
-		std::cout << "Most torlom az elso parabolat" << std::endl;
-		delete parabola1;
-		std::cout << "Most torlom a masodik parabolat" << std::endl;
-		delete parabola2;
-	}
+    ~ Metszo() {}
 };
 
 
