@@ -1,5 +1,6 @@
 #include "Kor.h"
 
+
 double Kor::x_kiszamito(double x, double y, double sugar) {
 	return -2 * x;
 }

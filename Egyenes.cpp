@@ -1,5 +1,6 @@
 #include "Egyenes.h"
 
+
 double Egyenes::x_kiszamito(double x1, double y1, double x2, double y2) {
 	double vektorX = x2 - x1;
 	double vektorY = y2 - y1;

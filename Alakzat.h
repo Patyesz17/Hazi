@@ -1,8 +1,7 @@
 #ifndef ALAKZAT_H
 #define ALAKZAT_H
+
 #include <iostream>
-
-
 
 class Alakzat {
 	double x;
@@ -11,7 +10,7 @@ class Alakzat {
 	
 
 public:
-	Alakzat(double x, double y, double konstans ) : x(x), y(y), konstans(konstans) {}
+	Alakzat(double x = 0, double y = 0, double konstans = 0) : x(x), y(y), konstans(konstans) {}
 	
 	Alakzat(const Alakzat& masik) {
 		x = masik.x;
@@ -35,8 +34,12 @@ public:
    		std::cout << "ALAKZAT" << std::endl;
 	}
 
-	virtual ~Alakzat() {}
+	template<typename T>
+	T* Caster() {
+		return dynamic_cast<T*>(this);
+	}
 
+	virtual ~Alakzat() {}
 	
 };
 

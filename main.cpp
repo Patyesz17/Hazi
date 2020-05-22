@@ -1,4 +1,5 @@
 #include <iostream>
+#include <iomanip>
 #include "Alakzat.h"
 #include "Egyenes.h"
 #include "Kor.h"
@@ -7,91 +8,53 @@
 #include "FilebolBeolvas.h"
 #include "Metszo.h"
 
+void eredmeny_kiir(const std::vector<Pont>& metszespontok) {
+	if (metszespontok.empty()) {
+			std::cout << "Nem metszik egymast." << std::endl << std::endl;
+		}
+		for (const auto& v : metszespontok ) {
+			std::cout << "Metszespont X koord.: "<< v.getX() << std::endl <<  "Metszespont Y koord.: "<< v.getY() << std::endl << std::endl;
+		}
+}
+
+
 int main() {
 	
+	std::cout << std::setprecision(3);
+	try {
+		std::vector<Alakzat*> alakzatok = alakzat_beolvaso("alakzatok.txt");
 
-		vector<Egyenes*> egyenesek = egyenes_beolvaso("egyenes.txt");
+		//e-e		
+		auto w = Metszo::Metszik(alakzatok[0], alakzatok[1]);
+		eredmeny_kiir(w);
+		
+		//e-k
+		auto x = Metszo::Metszik(alakzatok[1], alakzatok[7]);
+		eredmeny_kiir(x);
+		
+		//e-p
+		auto y = Metszo::Metszik(alakzatok[3], alakzatok[9]);
+		eredmeny_kiir(y);
 
-		vector<Kor*> korok = kor_beolvaso("kor.txt");
+		//k-k
+		auto z = Metszo::Metszik(alakzatok[7], alakzatok[8]);
+		eredmeny_kiir(z);
 
-		vector<Parabola*> parabolak = parabola_beolvaso("parabola.txt");
+		//p-p
+		auto j = Metszo::Metszik(alakzatok[10], alakzatok[9]);
+		eredmeny_kiir(j);
 
-		Metszo metszi1(egyenesek[0], egyenesek[1]);
-		vector<Pont*>metszespont1 = metszi1.egyenes_egyenes_metszes();
-		if (metszespont1.size() == 0) {
-			std::cout << "Nem metszi egym�st a k�t alakzat" << std::endl;
-		}
-		else {
-			for (int i = 0; i < metszespont1.size(); i++) {
-				metszespont1[i]->kiirat();
-			}
-		}
-
-		Metszo metszi2(egyenesek[0], korok[2]);
-		vector<Pont*>metszespont2 = metszi2.egyenes_kor_metszes();
-		if (metszespont2.size() == 0) {
-			std::cout << "Nem metszi egym�st a k�t alakzat" << std::endl;
-		}
-		else {
-			for (int i = 0; i < metszespont2.size(); i++) {
-				metszespont2[i]->kiirat();
-			}
-		}
-
-
-		Metszo metszi3(egyenesek[2], parabolak[1]);
-		vector<Pont*>metszespont3 = metszi3.egyenes_parabola_metszes();
-		if (metszespont3.size() == 0) {
-			std::cout << "Nem metszi egym�st a k�t alakzat" << std::endl;
-		}
-		else {
-			for (int i = 0; i < metszespont3.size(); i++) {
-				metszespont3[i]->kiirat();
-			}
-		}
-
-
-		for (int i = 0; i < egyenesek.size(); i++) {
-			delete egyenesek[i];
+		//k-p
+		auto q = Metszo::Metszik(alakzatok[7], alakzatok[9]);
+		eredmeny_kiir(q);
+		
+		
+		for (size_t i = 0; i < alakzatok.size(); i++) {
+			delete alakzatok[i];
 		}
 		
-		for (int i = 0; i < korok.size(); i++) {
-			delete korok[i];
-		}
-		
-		for (int i = 0; i < parabolak.size(); i++) {
-			delete parabolak[i];
-		}
-		/*Metszo metszi4(korok[0], korok[1]);
-		vector<Pont*>metszespont4 = metszi4.kor_kor_metszes();
-		if (metszespont4.size() < 1) {
-			std::cout << "Nem metszi egym�st a k�t alakzat" << std::endl;
-		}
-		else if(metszespont4.size()>=1) {
-			for (int i = 0; i < metszespont4.size(); i++) {
-				metszespont4[i]->kiirat();
-				std::cout << "hibakereses" << std::endl;
-			}
-		}*/
-
-		/*Metszo metszi5(parabolak[0], parabolak[1]);
-		vector<Pont*>metszespont5 = metszi5.parabola_parabola_metszes();
-		if (metszespont5.size() < 1) {
-			std::cout << "Nem metszi egym�st a k�t alakzat" << std::endl;
-		}
-		else {
-			for (int i = 0; i < metszespont5.size(); i++) {
-				metszespont5[i]->kiirat();
-				std::cout << "hibakereses" << std::endl;
-			}
-		}*/
-
-	
-	
-	
+	} catch (char const* e) {
+		std::cout<< e << std::endl;
 	}
 	
-
-	
-	
-	
+}

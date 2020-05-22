@@ -4,6 +4,7 @@
 #include "Alakzat.h"
 #include <iostream>
 
+
 class Parabola:public Alakzat {
 	double xNegyzet;
 	
@@ -14,6 +15,7 @@ public:
 		std::cout << "Itt jon egy Parabola: ";
 		std::cout << "y = " << getXnegyzet() << " * x^2 + " << getX() << " * x + " << getKonst() << std::endl;
 	}
+
 	~Parabola() {}
 };
 #endif

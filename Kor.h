@@ -1,8 +1,10 @@
 #ifndef KOR_H
 #define KOR_H
+
 #include <iostream>
 #include "Pont.h"
 #include "Alakzat.h"
+
 
 class Kor:public Alakzat {
 	double xNegyzet;
@@ -14,9 +16,11 @@ public:
 	double x_kiszamito(double x, double y, double sugar);
 	double y_kiszamito(double x, double y, double sugar);
 	double konstans_kiszamito(double x, double y, double sugar);
-	double getXnegyzet()const { return xNegyzet; }
-	double getYnegyzet()const { return yNegyzet; }
+	double getXnegyzet() const { return xNegyzet; }
+	double getYnegyzet() const { return yNegyzet; }
 	virtual void print() const;
+
+	
 	~Kor() {}
 };
 #endif

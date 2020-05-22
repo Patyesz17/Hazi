@@ -10,7 +10,7 @@ public:
 	Pont(double x, double y):x(x),y(y){}
 	double getX()const { return x; }
 	double getY()const { return y; }
-	void kiirat() {
+	void print() {
 		std::cout << x << " " << y << std::endl;
 	}
 	~Pont() {}

@@ -9,88 +9,59 @@
 #include "Kor.h"
 #include "Parabola.h"
 
-using namespace std;
 
-vector<Egyenes*> egyenes_beolvaso (string file_nev) {
-    
-    vector<Egyenes*> ret;
-    
-    ifstream file;
-    file.open(file_nev);
+Egyenes* egyenes_beolvaso(std::istream& is) {
 
-    if(file.is_open()) {
-        double x1;
-        double y1;
-        double x2;
-        double y2;
-
-        int index = 0;
-
-        while (file >> x1 >> y1 >> x2 >> y2) {
-            ret.push_back(new  Egyenes(x1, y1, x2, y2));
-        }
-
-		file.close();
-		return ret;
-    }
-	else {
-		throw -1;
-	}
+		double x1, x2, y1, y2;
+		is >> x1 >> y1 >> x2 >> y2;
+		
+		return new Egyenes(x1, y1, x2, y2);
 }
 
-vector<Kor*> kor_beolvaso (string file_nev) {
-    
-    vector<Kor*> ret;
-    
-    ifstream file;
-    file.open(file_nev);
+Kor* kor_beolvaso(std::istream& is) {
 
-    if(file.is_open()) {
-        double x1;
-        double y1;
-        double sugar;
+		double x, y, sugar;
+		is >> x >> y >> sugar;
 
-        int index = 0;
-
-        while (file >> x1 >> y1 >> sugar) {
-			if (sugar < 0 || sugar == 0) {
-				throw 'a';
-			}
-            ret.push_back(new  Kor(x1, y1, sugar));
-        }
-    }
-	else {
-		throw -1;
-	}
-
-    file.close();
-    return ret;
-
+		return new Kor(x, y, sugar);
 }
 
-vector<Parabola*> parabola_beolvaso (string file_nev) {
+Parabola* parabola_beolvaso(std::istream& is) {
+        
+        double xNegyzet, x, konstans;
+		is >> xNegyzet >> x >> konstans;
+
+		return new Parabola(xNegyzet, x, konstans);
+}
+
+std::vector<Alakzat*> alakzat_beolvaso (const std::string& file_nev) {
     
-    vector<Parabola*> ret;
+    std::vector<Alakzat*> ret;
     
-    ifstream file;
-    file.open(file_nev);
+    std::ifstream input_filestream;
+    input_filestream.open(file_nev);
 
-    if(file.is_open()) {
-        double x1;
-        double y1;
-        double sugar;
+    std::string temp;
 
-        int index = 0;
+    while(!input_filestream.eof()) {
+        
+        input_filestream >> temp;
+        if (temp == "egyenes") {
+            
+            ret.push_back(egyenes_beolvaso(input_filestream));
+       
+        } else if (temp == "kor") {
+       
+            ret.push_back(kor_beolvaso(input_filestream));
+       
+        } else if (temp == "parabola") {
 
-        while (file >> x1 >> y1 >> sugar) {
-            ret.push_back(new Parabola(x1, y1, sugar));
+            ret.push_back(parabola_beolvaso(input_filestream));
+
         }
     }
-	else {
-		throw -1;
-	}
-
-    file.close();
+    
+    input_filestream.close();
     return ret;
 
 }
